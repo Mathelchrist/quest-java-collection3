@@ -2,7 +2,7 @@ public class Hero implements Comparable<Hero> {
 
     @Override
     public int compareTo(Hero hero) {
-        return this.getAge() - hero.getAge();
+        return hero.getAge() - this.getAge();
     }
 
     // attributs
@@ -32,4 +32,5 @@ public class Hero implements Comparable<Hero> {
     public void setAge(int age) {
         this.age = age;
     }
+    
 }

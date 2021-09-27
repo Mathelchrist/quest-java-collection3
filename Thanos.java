@@ -1,3 +1,4 @@
+import java.util.SortedSet;
 import java.util.TreeSet;
 
 public class Thanos {
@@ -14,7 +15,8 @@ public class Thanos {
         heroes.add(new Hero("Doctor Strange", 42));
 
         // TODO 1 : Retrieve and remove the oldest hero in one line
-        Hero oldest = null;
+        Hero oldest = heroes.first();
+        heroes.remove(heroes.first());
 
         System.out.println("\nOldest hero:");
         System.out.println(oldest == null ? "" : oldest.getName());
@@ -30,9 +32,11 @@ public class Thanos {
         Hero ironman = new Hero("Iron Man", 48);
         heroes.add(spiderman);
         heroes.add(ironman);
+        
+        TreeSet<Hero> subset = (TreeSet<Hero>) heroes.subSet(ironman,true ,spiderman, true);
 
         System.out.println("\nSubset of heroes :");
-        for (Hero hero : heroes) {
+        for (Hero hero : subset.descendingSet()) {
             System.out.println(hero.getName() + ", " + hero.getAge());
         }
     }
